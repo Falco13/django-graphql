@@ -8,7 +8,7 @@ class MovieType(DjangoObjectType):
         model = Movie
 
 
-class Query(DjangoObjectType):
+class Query(graphene.ObjectType):
     all_movies = graphene.List(MovieType)
 
     def resolve_all_movies(self, info, **kwargs):
