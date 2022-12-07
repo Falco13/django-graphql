@@ -6,7 +6,7 @@ class Director(models.Model):
     surname = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.surname}'
 
 
 class Movie(models.Model):
