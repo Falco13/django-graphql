@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -129,3 +129,9 @@ AUTHENTICATION_BACKENDS = [
     "graphql_jwt.backends.JSONWebTokenBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_EXPIRATION_DELTA": timedelta(minutes=5),
+    "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=7),
+}
